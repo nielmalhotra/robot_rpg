@@ -31,18 +31,18 @@
               = link_to 'logout', logout_path, :method => :delete
         .medium-10.columns
           .panel
-            %div{'ng-app' => 'foo'}
+            %div{'ng-app' => 'rf'}
               %div{'ng-view'=>''}
 
 
 :javascript
-  var foo = angular
-            .module('foo', ['ngRoute'])
-            .config(['$httpProvider', function($httpProvider){
-                $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content');
-            }])
-            .config(function ($routeProvider) {
-                $routeProvider
-                    .when('/', {templateUrl: 'angular_views/home'})
-                    .when('/f', {template: 'Now you are on the Info Page. ffffff'})
-            });
+    angular
+    .module('rf', ['ngRoute'])
+    .config(['$httpProvider', function($httpProvider){
+        $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content');
+    }])
+    .config(function ($routeProvider) {
+        $routeProvider
+        .when('/', {templateUrl: 'angular_views/home'})
+        .when('/f', {template: 'Now you are on the Info Page. ffffff'})
+    });
