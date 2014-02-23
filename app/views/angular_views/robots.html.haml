@@ -9,7 +9,7 @@
       $scope.show_robots = function(){
           $http({
               method : 'GET',
-              url : '/robots/',
+              url : 'robots.json',
           }).success(function(data, status, headers, config){
               data.forEach(function(r) {
                   $scope.robots.push(r);
