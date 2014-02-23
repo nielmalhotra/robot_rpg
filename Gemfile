@@ -11,6 +11,7 @@ gem 'bcrypt-ruby'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
+gem 'protected_attributes'
 
 
 group :assets do

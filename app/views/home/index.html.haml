@@ -1,0 +1,11 @@
+%h1= "hi #{current_user.name if current_user.present?}"
+
+- if current_user.present?
+  %h3 you are logged in
+  = link_to 'logout', logout_path, :method => :delete
+- else
+  %h3 who are you?
+  login:
+  = render 'user_sessions/new'
+  or new user:
+  = render 'users/new'

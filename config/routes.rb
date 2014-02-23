@@ -5,5 +5,5 @@ RobotRpg::Application.routes.draw do
 
   resources :users, only: [:create]
 
-  get 'logout' => 'user_sessions#destroy', :as => :logout
+  delete 'logout' => 'user_sessions#destroy', :as => :logout
 end
