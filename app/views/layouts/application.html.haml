@@ -36,13 +36,13 @@
 
 
 :javascript
-    angular
-    .module('rf', ['ngRoute'])
-    .config(['$httpProvider', function($httpProvider){
-        $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content');
-    }])
-    .config(function ($routeProvider) {
-        $routeProvider
-        .when('/', {templateUrl: 'angular_views/home'})
-        .when('/robots', {templateUrl: 'angular_views/robots'})
-    });
+  angular
+  .module('rf', ['ngRoute'])
+  .config(['$httpProvider', function($httpProvider){
+      $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content');
+  }])
+  .config(function ($routeProvider) {
+      $routeProvider
+      .when('/', {controller: 'RobotController', templateUrl: 'angular_views/home'})
+      .when('/robots', {controller: 'RobotController', templateUrl: 'angular_views/robots'})
+  });

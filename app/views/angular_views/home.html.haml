@@ -1,21 +1,8 @@
 #header
   = "yo #{current_user.name}, you are logged in"
 
-%div{'ng-controller' => 'Controller'}
+%div{'ng-controller' => 'RobotController'}
   %form{class: 'simple-form', novalidate: ''}
     Name:
     %input{type: 'name', 'ng-model' => 'robot.name'}
     %button{'ng-click' => 'update(robot)'} Save Robot
-
-:javascript
-  function Controller($scope, $http) {
-      $scope.update = function(robot) {
-          $http({
-              method : 'POST',
-              url : 'robots.html',
-              data : angular.copy(robot)
-          }).success(function(data, status, headers, config){
-            $('#header').html(data);
-          });
-      };
-  }
