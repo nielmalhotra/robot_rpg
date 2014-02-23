@@ -36,9 +36,13 @@
 
 
 :javascript
-  var foo = angular.module('foo', ['ngRoute']);
-  foo.config(function ($routeProvider) {
-    $routeProvider
-    .when('/', {templateUrl: 'angular_views/home'})
-    .when('/f', {template: 'Now you are on the Info Page. ffffff'})
-  });
+  var foo = angular
+            .module('foo', ['ngRoute'])
+            .config(['$httpProvider', function($httpProvider){
+                $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content');
+            }])
+            .config(function ($routeProvider) {
+                $routeProvider
+                    .when('/', {templateUrl: 'angular_views/home'})
+                    .when('/f', {template: 'Now you are on the Info Page. ffffff'})
+            });
