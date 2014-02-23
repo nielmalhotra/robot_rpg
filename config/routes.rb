@@ -1,5 +1,9 @@
 RobotRpg::Application.routes.draw do
-  root :to => 'home#index'
+  root :to => 'application#root'
+
+  scope "/angular_views" do
+    get ':action', :controller => 'angular_views'
+  end
 
   resources :user_sessions, only: [:create, :destroy]
 

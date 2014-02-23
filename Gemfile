@@ -11,6 +11,7 @@ gem 'bcrypt-ruby'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
+gem 'angularjs-rails'
 gem 'protected_attributes'
 
 

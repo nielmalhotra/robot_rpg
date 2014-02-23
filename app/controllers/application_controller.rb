@@ -3,6 +3,14 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user_session, :current_user
 
+  def root
+    if current_user.blank?
+      @user_session = UserSession.new
+      @user = User.new
+    end
+    render :nothing => true, :layout => true
+  end
+
   private
 
   def current_user_session

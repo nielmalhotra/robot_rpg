@@ -1,15 +1,44 @@
 !!! 5
 %html
   %head
-    %title Project Arc
-    = stylesheet_link_tag 'application', media: 'all'
+    %title Robot Fightz
+    = stylesheet_link_tag 'application', :media => 'all'
     = javascript_include_tag 'application'
     = csrf_meta_tags
   %body
-    - if notice.present?
-      %p#notice= notice
-    - if flash[:errors].present?
-      %ul.errors
-        - flash[:errors].each do |error|
-          %li#error= error
-    = yield
+    - if current_user.blank?
+      %h3 who are you?
+      login:
+      = render 'user_sessions/new'
+      or new user:
+      = render 'users/new'
+    - else
+      .row
+        .small-12.columns
+          %h1 robot fightz
+      .row
+        .small-12.columns
+          - if notice.present?
+            %p#notice= notice
+      .row
+        .medium-2.columns
+          %ul.side-nav
+            %li
+              %a{:href => '#/'} Home
+            %li
+              %a{:href => '#/f'} Info
+            %li
+              = link_to 'logout', logout_path, :method => :delete
+        .medium-10.columns
+          .panel
+            %div{'ng-app' => 'foo'}
+              %div{'ng-view'=>''}
+
+
+:javascript
+  var foo = angular.module('foo', ['ngRoute']);
+  foo.config(function ($routeProvider) {
+    $routeProvider
+    .when('/', {templateUrl: 'angular_views/home'})
+    .when('/f', {template: 'Now you are on the Info Page. ffffff'})
+  });
