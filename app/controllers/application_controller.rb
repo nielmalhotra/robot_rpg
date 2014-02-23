@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
       @user_session = UserSession.new
       @user = User.new
     end
-    render :nothing => true, :layout => true
+    render :nothing => true, :layout => 'application'
   end
 
   private
@@ -27,21 +27,19 @@ class ApplicationController < ActionController::Base
     unless current_user
       store_location
       flash[:notice] = 'You must be logged in to access this page'
-      redirect_to new_user_session_url
-      return false
+      root
     end
   end
 
   def require_no_user
     if current_user
       flash[:notice] = 'You must be logged out to access this page'
-      redirect_to current_user
-      return false
+      root
     end
   end
 
   def store_location
-    session[:return_to] = request.request_uri
+    session[:return_to] = request.url
   end
 
   def redirect_back_or_default(default)

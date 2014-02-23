@@ -1,4 +1,6 @@
 class RobotsController < AngularViewsController
+  before_filter :require_user
+
   def index
     render json: current_user.robots.to_json
   end
