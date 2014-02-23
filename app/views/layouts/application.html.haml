@@ -18,8 +18,8 @@
           %h1 robot fightz
       .row
         .small-12.columns
-          - if notice.present?
-            %p#notice= notice
+          %p#notice= notice
+          %p#ng-notice
       .row
         .medium-2.columns
           %ul.side-nav
@@ -32,10 +32,16 @@
         .medium-10.columns
           .panel
             %div{'ng-app' => 'rf'}
-              %div{'ng-view'=>''}
+              %div{'ng-controller' => 'AppController'}
+                %div{'ng-view'=>''}
 
 
 :javascript
+  function AppController($scope, $rootScope) {
+      $rootScope.$on('$locationChangeSuccess', function (event) {
+          $('#ng-notice').html('');
+      });
+  }
   angular
   .module('rf', ['ngRoute'])
   .config(['$httpProvider', function($httpProvider){
@@ -43,6 +49,6 @@
   }])
   .config(function ($routeProvider) {
       $routeProvider
-      .when('/', {controller: 'RobotController', templateUrl: 'angular_views/home'})
+      .when('/', {templateUrl: 'angular_views/home'})
       .when('/robots', {controller: 'RobotController', templateUrl: 'angular_views/robots'})
   });

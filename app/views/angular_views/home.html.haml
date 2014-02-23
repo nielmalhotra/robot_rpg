@@ -1,8 +1,2 @@
 #header
   = "yo #{current_user.name}, you are logged in"
-
-%div{'ng-controller' => 'RobotController'}
-  %form{class: 'simple-form', novalidate: ''}
-    Name:
-    %input{type: 'name', 'ng-model' => 'robot.name'}
-    %button{'ng-click' => 'update(robot)'} Save Robot

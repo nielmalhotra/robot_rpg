@@ -5,7 +5,8 @@ function RobotController($scope, $http) {
             url : 'robots.html',
             data : angular.copy(robot)
         }).success(function(data, status, headers, config){
-            $('#header').html(data);
+            $('#ng-notice').html(data);
+            $scope.load_robots();
         });
     };
 
