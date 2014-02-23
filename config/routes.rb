@@ -6,6 +6,8 @@ RobotRpg::Application.routes.draw do
   end
 
   resources :robots, only: [:index, :create]
+  resources :messages, only: [:index, :create]
+  get 'messages/unread_count', to: 'messages#unread_count'
   resources :user_sessions, only: [:create, :destroy]
   resources :users, only: [:create]
 

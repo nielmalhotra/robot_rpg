@@ -1,0 +1,21 @@
+%div{'ng-controller' => 'MessageController', 'ng-init' => 'load_messages()'}
+  %form{class: 'simple-form', novalidate: ''}
+    To:
+    %input{type: 'to', 'ng-model' => 'newmsg.to'}
+    %br
+    Subject:
+    %input{type: 'subject', 'ng-model' => 'newmsg.subject'}
+    %br
+    %textarea{type: 'body', 'ng-model' => 'newmsg.body'}
+    %button{'ng-click' => 'create_message(newmsg)'} Send
+  %table
+    %thead
+      %td
+        From
+      %td
+        Subject
+    %tr{'ng-repeat' => 'message in messages'}
+      %td
+        {{message.from}}
+      %td
+        {{message.subject}}
