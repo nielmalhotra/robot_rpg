@@ -1,0 +1,20 @@
+%div{'ng-controller' => 'RobotsController'}
+  .robots
+  %table
+    %tr{'ng-repeat' => 'robot in robots'}
+      %td  {{robot.name}}
+:javascript
+  function RobotsController($scope, $http) {
+      $scope.robots = [];
+      $scope.show_robots = function(){
+          $http({
+              method : 'GET',
+              url : '/robots/',
+          }).success(function(data, status, headers, config){
+              data.forEach(function(r) {
+                  $scope.robots.push(r);
+              });
+          });
+      };
+      $scope.show_robots();
+  }

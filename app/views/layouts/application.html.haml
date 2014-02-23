@@ -26,7 +26,7 @@
             %li
               %a{:href => '#/'} Home
             %li
-              %a{:href => '#/f'} Info
+              %a{:href => '#/robots'} Robots
             %li
               = link_to 'logout', logout_path, :method => :delete
         .medium-10.columns
@@ -44,5 +44,5 @@
     .config(function ($routeProvider) {
         $routeProvider
         .when('/', {templateUrl: 'angular_views/home'})
-        .when('/f', {template: 'Now you are on the Info Page. ffffff'})
+        .when('/robots', {templateUrl: 'angular_views/robots'})
     });

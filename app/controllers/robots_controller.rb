@@ -1,5 +1,6 @@
 class RobotsController < AngularViewsController
   def index
+    render json: current_user.robots.to_json
   end
 
   def create
