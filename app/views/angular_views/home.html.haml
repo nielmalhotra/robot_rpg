@@ -1,1 +1,29 @@
-= "yo #{current_user.name}, you are logged in"
+#header
+  = "yo #{current_user.name}, you are logged in"
+%div{'ng-controller' => 'Controller'}
+  %form{class: 'simple-form', novalidate: ''}
+    Name:
+    %input{type: 'name', 'ng-model' => 'robot.name'}
+    %button{'ng-click' => 'update(robot)'} Save Robot
+
+:javascript
+  function Controller($scope, $http) {
+    $scope.master = {};
+    $scope.update = function(user) {
+      $scope.user = angular.copy(user);
+      console.log($scope.user);
+
+        result = $http({
+            method : 'POST',
+            url : '/robots/',
+            data : $scope.user
+        }).success(function(data, status, headers, config){
+          $('#header').html(data);
+        });
+        console.log(result);
+    };
+    $scope.reset = function() {
+      $scope.user = angular.copy($scope.master);
+    };
+    $scope.reset();
+  }
