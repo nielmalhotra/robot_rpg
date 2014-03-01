@@ -16,7 +16,9 @@
             From
           %td
             Subject
-        %tr{'ng-repeat' => 'message in messages', 'ng-mouseenter' => 'set_message_body(this.message.body);'}
+        %tr{'ng-repeat' => 'message in messages',
+            'ng-mouseenter' => 'set_message_body(this.message.body);',
+            class: '{{message.read ? "" : "unread"}}'}
           %td
             {{message.from}}
           %td

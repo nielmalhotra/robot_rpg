@@ -5,6 +5,7 @@ class MessagesController < AngularViewsController
     messages = []
     current_user.messages_received.each do |m|
       messages << {
+          read: m.read,
           from: m.from.name,
           subject: m.subject,
           body: m.body
