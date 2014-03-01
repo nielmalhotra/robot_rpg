@@ -20,4 +20,8 @@ function MessageController($scope, $http) {
             });
         });
     };
+
+    $scope.set_message_body = function(message_body) {
+        $scope.message_body = message_body;
+    };
 }

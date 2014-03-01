@@ -8,14 +8,18 @@
     %br
     %textarea{type: 'body', 'ng-model' => 'newmsg.body'}
     %button{'ng-click' => 'create_message(newmsg)'} Send
-  %table
-    %thead
-      %td
-        From
-      %td
-        Subject
-    %tr{'ng-repeat' => 'message in messages'}
-      %td
-        {{message.from}}
-      %td
-        {{message.subject}}
+  .row
+    .medium-3.columns
+      %table
+        %thead
+          %td
+            From
+          %td
+            Subject
+        %tr{'ng-repeat' => 'message in messages', 'ng-mouseenter' => 'set_message_body(this.message.body);'}
+          %td
+            {{message.from}}
+          %td
+            {{message.subject}}
+    #message-body.medium-9.columns
+      {{message_body}}
