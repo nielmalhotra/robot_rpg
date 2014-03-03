@@ -5,7 +5,7 @@ RobotRpg::Application.routes.draw do
     get ':action', :controller => 'angular_views'
   end
 
-  resources :robots, only: [:index, :create]
+  resources :mechs, only: [:index, :create]
   resources :messages, only: [:index, :create]
   get 'messages/unread_count', to: 'messages#unread_count'
   resources :user_sessions, only: [:create, :destroy]

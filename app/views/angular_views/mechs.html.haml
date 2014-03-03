@@ -1,0 +1,8 @@
+%div{'ng-controller' => 'MechController', 'ng-init' => 'load_mechs()'}
+  %form{class: 'simple-form', novalidate: ''}
+    Name:
+    %input{type: 'name', 'ng-model' => 'newmech.name'}
+    %button{'ng-click' => 'update(newmech)'} Save Mech
+  %table
+    %tr{'ng-repeat' => 'mech in mechs'}
+      %td {{mech.name}}

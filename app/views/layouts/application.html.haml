@@ -1,7 +1,7 @@
 !!! 5
 %html
   %head
-    %title Robot Fightz
+    %title Mech Fightz
     = stylesheet_link_tag 'application', :media => 'all'
     = javascript_include_tag 'application'
     = csrf_meta_tags
@@ -31,7 +31,7 @@
                 %li
                   %a{:href => '#/messages'} Messages ({{unread_messages_count}})
                 %li
-                  %a{:href => '#/robots'} Robots
+                  %a{:href => '#/mechs'} Mechs
                 %li
                   = link_to 'logout', logout_path, :method => :delete
             .medium-10.columns
@@ -60,5 +60,5 @@
       $routeProvider
       .when('/', {templateUrl: 'angular_views/home'})
       .when('/messages', {controller: 'MessageController', templateUrl: 'angular_views/messages'})
-      .when('/robots', {controller: 'RobotController', templateUrl: 'angular_views/robots'})
+      .when('/mechs', {controller: 'MechController', templateUrl: 'angular_views/mechs'})
   }]);

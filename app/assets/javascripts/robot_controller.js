@@ -1,23 +1,23 @@
-function RobotController($scope, $http) {
-    $scope.update = function(robot) {
+function MechController($scope, $http) {
+    $scope.update = function(mech) {
         $http({
             method : 'POST',
-            url : 'robots.html',
-            data : angular.copy(robot)
+            url : 'mechs.html',
+            data : angular.copy(mech)
         }).success(function(data, status, headers, config){
             $('#ng-notice').html(data);
-            $scope.load_robots();
+            $scope.load_mechs();
         });
     };
 
-    $scope.load_robots = function() {
-        $scope.robots = [];
+    $scope.load_mechs = function() {
+        $scope.mechs = [];
         $http({
             method : 'GET',
-            url : 'robots.json',
+            url : 'mechs.json',
         }).success(function(data, status, headers, config){
             data.forEach(function(r) {
-                $scope.robots.push(r);
+                $scope.mechs.push(r);
             });
         });
     };

@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :robots
+  has_many :mechs
   has_many :messages_sent, class_name: 'Message', foreign_key: :from_id
   has_many :messages_received, class_name: 'Message', foreign_key: :to_id
 

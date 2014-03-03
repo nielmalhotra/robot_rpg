@@ -1,8 +1,0 @@
-%div{'ng-controller' => 'RobotController', 'ng-init' => 'load_robots()'}
-  %form{class: 'simple-form', novalidate: ''}
-    Name:
-    %input{type: 'name', 'ng-model' => 'newrobot.name'}
-    %button{'ng-click' => 'update(newrobot)'} Save Robot
-  %table
-    %tr{'ng-repeat' => 'robot in robots'}
-      %td  {{robot.name}}

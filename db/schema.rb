@@ -11,22 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140223185943) do
+ActiveRecord::Schema.define(version: 20140303035852) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "messages", force: true do |t|
-    t.integer  "from_id",                    null: false
-    t.integer  "to_id",                      null: false
-    t.string   "subject"
-    t.string   "body"
-    t.boolean  "read",       default: false, null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "robots", force: true do |t|
+  create_table "mechs", force: true do |t|
     t.string   "name"
     t.integer  "num_slots",  default: 3
     t.datetime "created_at"
@@ -34,8 +24,12 @@ ActiveRecord::Schema.define(version: 20140223185943) do
     t.integer  "user_id"
   end
 
-  create_table "slots", force: true do |t|
-    t.integer  "robot_id"
+  create_table "messages", force: true do |t|
+    t.integer  "from_id",                    null: false
+    t.integer  "to_id",                      null: false
+    t.string   "subject"
+    t.string   "body"
+    t.boolean  "read",       default: false, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
