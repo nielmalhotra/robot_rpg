@@ -15,5 +15,6 @@
 //= require turbolinks
 //= require angular
 //= require angular-route
+//= require angular-resource
 //= require robot_rpg
 //= require_tree .

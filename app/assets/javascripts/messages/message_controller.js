@@ -1,25 +1,13 @@
 angular.module('robot_rpg')
-.controller('MessageController', ['$scope', '$http', function($scope, $http) {
+.controller('MessageController', ['$scope', '$http', '$messages', function($scope, $http, $messages) {
     $scope.create_message = function(msg) {
-        $http({
-            method : 'POST',
-            url : 'messages.json',
-            data : angular.copy(msg)
-        }).success(function(data, status, headers, config){
+        $messages.save(msg, function(data){
             $('#ng-notice').html(data.success);
         });
     };
 
     $scope.load_messages = function() {
-        $scope.messages = [];
-        $http({
-            method : 'GET',
-            url : 'messages.json'
-        }).success(function(data, status, headers, config){
-            data.forEach(function(r) {
-                $scope.messages.push(r);
-            });
-        });
+        $scope.messages = $messages.query();
     };
 
     $scope.set_message_body = function(message_body) {
