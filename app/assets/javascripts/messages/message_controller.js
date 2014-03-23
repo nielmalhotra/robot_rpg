@@ -1,8 +1,9 @@
-function MessageController($scope, $http) {
+angular.module('robot_rpg')
+.controller('MessageController', ['$scope', '$http', function($scope, $http) {
     $scope.create_message = function(msg) {
         $http({
             method : 'POST',
-            url : 'messages.html',
+            url : 'messages.json',
             data : angular.copy(msg)
         }).success(function(data, status, headers, config){
             $('#ng-notice').html(data);
@@ -24,4 +25,4 @@ function MessageController($scope, $http) {
     $scope.set_message_body = function(message_body) {
         $scope.message_body = message_body;
     };
-}
+}]);

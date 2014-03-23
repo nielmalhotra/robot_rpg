@@ -1,4 +1,5 @@
-function MechController($scope, $http) {
+angular.module('robot_rpg')
+.controller('MechController', ['$scope', '$http', function($scope, $http) {
     $scope.update = function(mech) {
         $http({
             method : 'POST',
@@ -21,4 +22,4 @@ function MechController($scope, $http) {
             });
         });
     };
-}
+}]);

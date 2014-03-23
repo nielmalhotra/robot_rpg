@@ -14,8 +14,8 @@
       or new user:
       = render 'users/new'
     - else
-      %div{'ng-app' => 'rf'}
-        %div{'ng-controller' => 'AppController'}
+      %div{'ng-app' => 'robot_rpg'}
+        %div{'ng-controller' => 'ApplicationController'}
           .row
             .small-12.columns
               %h1
@@ -37,28 +37,3 @@
             .medium-10.columns
               .panel
                 %div{'ng-view'=>''}
-
-
-:javascript
-  function AppController($scope, $rootScope, $http) {
-      $rootScope.$on('$locationChangeSuccess', function (event) {
-          $('#ng-notice').html('');
-          $http({
-              method : 'GET',
-              url : 'messages/unread_count.json'
-          }).success(function(data, status, headers, config) {
-              $scope.unread_messages_count = data.unread_count
-          });
-      });
-  }
-  angular
-  .module('rf', ['ngRoute'])
-  .config(['$httpProvider', function($httpProvider){
-      $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content');
-  }])
-  .config(['$routeProvider', function ($routeProvider) {
-      $routeProvider
-      .when('/', {templateUrl: 'angular_views/home'})
-      .when('/messages', {controller: 'MessageController', templateUrl: 'angular_views/messages'})
-      .when('/mechs', {controller: 'MechController', templateUrl: 'angular_views/mechs'})
-  }]);
