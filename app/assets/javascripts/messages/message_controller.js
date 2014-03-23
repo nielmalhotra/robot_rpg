@@ -6,7 +6,7 @@ angular.module('robot_rpg')
             url : 'messages.json',
             data : angular.copy(msg)
         }).success(function(data, status, headers, config){
-            $('#ng-notice').html(data);
+            $('#ng-notice').html(data.success);
         });
     };
 

@@ -22,6 +22,7 @@ class MessagesController < AngularViewsController
       msg.subject = params[:subject]
       msg.body = params[:body]
     end
+    render json: {success: 'Yay'}.to_json
   end
 
   def unread_count
