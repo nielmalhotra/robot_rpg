@@ -1,4 +1,4 @@
-class MessagesController < AngularViewsController
+class MessagesController < AngularTemplatesController
   before_filter :require_user
 
   def index

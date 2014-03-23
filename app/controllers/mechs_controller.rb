@@ -1,4 +1,4 @@
-class MechsController < AngularViewsController
+class MechsController < AngularTemplatesController
   before_filter :require_user
 
   def index

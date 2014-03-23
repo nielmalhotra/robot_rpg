@@ -5,7 +5,7 @@ angular
 }])
 .config(['$routeProvider', function ($routeProvider) {
     $routeProvider
-        .when('/', {templateUrl: 'angular_views/home'})
-        .when('/messages', {controller: 'MessageController', templateUrl: 'angular_views/messages'})
-        .when('/mechs', {controller: 'MechController', templateUrl: 'angular_views/mechs'})
+        .when('/', {templateUrl: 'angular_templates/home'})
+        .when('/messages', {controller: 'MessageController', templateUrl: 'angular_templates/messages'})
+        .when('/mechs', {controller: 'MechController', templateUrl: 'angular_templates/mechs'})
 }]);

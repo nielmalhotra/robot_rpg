@@ -1,8 +1,8 @@
 RobotRpg::Application.routes.draw do
   root :to => 'application#root'
 
-  scope "/angular_views" do
-    get ':action', :controller => 'angular_views'
+  scope "/angular_templates" do
+    get ':action', :controller => 'angular_templates'
   end
 
   resources :mechs, only: [:index, :create]
