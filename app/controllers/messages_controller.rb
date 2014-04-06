@@ -12,7 +12,7 @@ class MessagesController < AngularTemplatesController
       }
       m.read!
     end
-    render json: messages.to_json
+    render json: messages
   end
 
   def create
@@ -22,11 +22,11 @@ class MessagesController < AngularTemplatesController
       msg.subject = params[:subject]
       msg.body = params[:body]
     end
-    render json: {success: 'Yay'}.to_json
+    render json: {success: 'Message Sent'}
   end
 
   def unread_count
-    render json: {unread_count: current_user.try(:messages_received).try(:unread).count}.to_json
+    render json: {unread_count: current_user.try(:messages_received).try(:unread).count}
   end
 
 end
