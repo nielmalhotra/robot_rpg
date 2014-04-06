@@ -2,6 +2,10 @@ tr.unread {
     background: aliceblue !important;
 }
 
+html, body {
+    height: 100%;
+}
+
 body {
     background: radial-gradient(darkgreen 7%, transparent 8%) 0 0;
     background-color: lightgrey;
@@ -12,6 +16,7 @@ body {
     background: white;
     margin: 10px;
     border: 10px solid darkgoldenrod;
+    min-height: 90%;
 }
 
 a {
