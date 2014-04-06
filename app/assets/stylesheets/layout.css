@@ -1,3 +1,32 @@
 tr.unread {
     background: aliceblue !important;
 }
+
+body {
+    background: radial-gradient(darkgreen 7%, transparent 8%) 0 0;
+    background-color: lightgrey;
+    background-size: 16px 16px;
+}
+
+.body {
+    background: white;
+    margin: 10px;
+    border: 10px solid darkgoldenrod;
+}
+
+a {
+    color: darkgreen !important;
+    font-weight: bold;
+}
+
+button {
+    background-color: darkgreen;
+}
+
+button:hover {
+    background-color: green;
+}
+
+button:focus {
+    background-color: darkgoldenrod;
+}

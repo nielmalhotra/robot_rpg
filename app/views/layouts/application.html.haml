@@ -6,34 +6,35 @@
     = javascript_include_tag 'application'
     = csrf_meta_tags
   %body
-    - if current_user.blank?
-      %p#notice= notice
-      %h3 who are you?
-      login:
-      = render 'user_sessions/new'
-      or new user:
-      = render 'users/new'
-    - else
-      %div{'ng-app' => 'robot_rpg'}
-        %div{'ng-controller' => 'ApplicationController'}
-          .row
-            .small-12.columns
-              %h1
-          .row
-            .small-12.columns
-              %p#notice= notice
-              %p#ng-notice
-          .row
-            .medium-2.columns
-              %ul.side-nav
-                %li
-                  %a{:href => '#/'} Home
-                %li
-                  %a{:href => '#/messages'} Messages ({{unread_messages_count}})
-                %li
-                  %a{:href => '#/mechs'} Mechs
-                %li
-                  = link_to 'logout', logout_path, :method => :delete
-            .medium-10.columns
-              .panel
-                %div{'ng-view'=>''}
+    .body
+      - if current_user.blank?
+        %p#notice= notice
+        %h3 who are you?
+        login:
+        = render 'user_sessions/new'
+        or new user:
+        = render 'users/new'
+      - else
+        %div{'ng-app' => 'robot_rpg'}
+          %div{'ng-controller' => 'ApplicationController'}
+            .row
+              .small-12.columns
+                %h1
+            .row
+              .small-12.columns
+                %p#notice= notice
+                %p#ng-notice
+            .row
+              .medium-2.columns
+                %ul.side-nav
+                  %li
+                    %a{:href => '#/'} Home
+                  %li
+                    %a{:href => '#/messages'} Messages ({{unread_messages_count}})
+                  %li
+                    %a{:href => '#/mechs'} Mechs
+                  %li
+                    = link_to 'logout', logout_path, :method => :delete
+              .medium-10.columns
+                .panel
+                  %div{'ng-view'=>''}
