@@ -1,6 +1,6 @@
 class Fight < ActiveRecord::Base
-  has_many :fight_entries
-  has_many :mechs, through: :fight_entries
+  has_many :fight_mechs
+  has_many :mechs, through: :fight_mechs
 
   has_many :logs, -> { order 'sequence ASC' }, class_name: 'FightLog'
 

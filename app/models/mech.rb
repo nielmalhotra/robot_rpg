@@ -3,6 +3,6 @@ class Mech < ActiveRecord::Base
 
   belongs_to :user
 
-  has_many :fight_entries
-  has_many :fights, through: :fight_entries
+  has_many :fight_mechs
+  has_many :fights, through: :fight_mechs
 end
