@@ -8,4 +8,5 @@ angular
         .when('/', {templateUrl: 'angular_templates/home'})
         .when('/messages', {controller: 'MessageController', templateUrl: 'angular_templates/messages'})
         .when('/mechs', {controller: 'MechController', templateUrl: 'angular_templates/mechs'})
+        .when('/fights', {controller: 'FightController', templateUrl: 'angular_templates/fights'})
 }]);
