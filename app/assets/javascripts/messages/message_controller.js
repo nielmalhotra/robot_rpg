@@ -12,6 +12,6 @@ angular.module('robot_rpg')
 
     $scope.delete_message = function(msg) {
         $messages.delete(msg);
-        $scope.messages.splice($scope.messages.indexOf(msg));
+        $scope.messages.splice($scope.messages.indexOf(msg), 1);
     };
 }]);
