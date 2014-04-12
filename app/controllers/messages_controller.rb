@@ -8,7 +8,8 @@ class MessagesController < AngularTemplatesController
           read: m.read,
           from: m.from.name,
           subject: m.subject,
-          body: m.body
+          body: m.body,
+          id: m.id
       }
       m.read!
     end
@@ -29,4 +30,8 @@ class MessagesController < AngularTemplatesController
     render json: {unread_count: current_user.try(:messages_received).try(:unread).count}
   end
 
+  def destroy
+    Message.find(params[:id]).destroy
+    render json: {}
+  end
 end

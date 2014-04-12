@@ -10,7 +10,8 @@ angular.module('robot_rpg')
         $scope.messages = $messages.query();
     };
 
-    $scope.set_message_body = function(message_body) {
-        $scope.message_body = message_body;
+    $scope.delete_message = function(msg) {
+        $messages.delete(msg);
+        $scope.messages.splice($scope.messages.indexOf(msg));
     };
 }]);

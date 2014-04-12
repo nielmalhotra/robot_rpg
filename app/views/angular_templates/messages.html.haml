@@ -16,6 +16,10 @@
             From
           %td
             Subject
+          %td
+            Body
+          %td
+            Delete
         %tr{'ng-repeat' => 'message in messages',
             'ng-mouseenter' => 'set_message_body(this.message.body);',
             class: '{{message.read ? "" : "unread"}}'}
@@ -23,5 +27,8 @@
             {{message.from}}
           %td
             {{message.subject}}
-    #message-body.medium-9.columns
-      {{message_body}}
+          %td
+            {{message.body}}
+          %td
+            %button{'ng-click' => 'delete_message(message)'}
+              Delete Message
