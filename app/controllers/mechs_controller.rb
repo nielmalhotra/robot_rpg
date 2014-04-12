@@ -10,5 +10,6 @@ class MechsController < AngularTemplatesController
     @mech.name = params[:name]
     @mech.user_id = current_user.id
     @mech.save
+    render json: {success: "You have created a mech named #{@mech.name}"}
   end
 end

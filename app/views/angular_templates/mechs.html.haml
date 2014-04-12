@@ -2,7 +2,7 @@
   %form{class: 'simple-form', novalidate: ''}
     Name:
     %input{type: 'name', 'ng-model' => 'newmech.name'}
-    %button{'ng-click' => 'update(newmech)'} Save Mech
+    %button{'ng-click' => 'create_mech(newmech)'} Save Mech
   %table
     %tr{'ng-repeat' => 'mech in mechs'}
       %td {{mech.name}}
