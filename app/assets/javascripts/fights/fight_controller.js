@@ -7,6 +7,6 @@ angular.module('robot_rpg')
     };
 
     $scope.current_fights = function() {
-        $fights = $fights.query()
+        $scope.fights = $fights.query()
     };
 }]);
