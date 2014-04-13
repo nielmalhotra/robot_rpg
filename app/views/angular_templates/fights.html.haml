@@ -6,6 +6,15 @@ Fightz
     %input{type: 'opponent', 'ng-model' => 'newFight.opponent'}
     %br
     Mech:
-    %input{type: 'mech', 'ng-model' => 'newFight.myMech'}
+    %input{type: 'mech', 'ng-model' => 'newFight.my_mech'}
     %br
     %button{'ng-click' => 'create_fight(newFight)'} Create Fight
+  .row
+    .medium-3.columns
+      %table
+        %thead
+          %td
+            ID
+        %tr{'ng-repeat' => 'fight in fights'}
+          %td
+            {{fight.id}}
