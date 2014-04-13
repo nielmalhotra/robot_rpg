@@ -52,7 +52,7 @@ class Fight < ActiveRecord::Base
     end
   end
 
-  def add_creator_user(user, result)
+  def add_creator(user, result = FightUser::Result::ACCEPTED)
     add_user(user, result, true)
   end
 
