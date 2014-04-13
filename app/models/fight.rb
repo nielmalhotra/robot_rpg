@@ -9,6 +9,10 @@ class Fight < ActiveRecord::Base
 
   validates_presence_of :start_time
 
+  def creator
+    fight_users.where(creator: true).first.try(:user)
+  end
+
   def mechs_entered_by_user(user)
     fight_users.where(user: user).collect(&:fight_mechs).flatten.collect(&:mech)
   end
@@ -38,12 +42,18 @@ class Fight < ActiveRecord::Base
     add_user(user, FightUser::Result::INVITED)
   end
 
-  def add_user(user, result)
+  def add_user(user, result, creator = false)
+    # TODO validate no other creator if creator
     FightUser.create do |fight_user|
       fight_user.user = user
       fight_user.fight = self
       fight_user.result = result
+      fight_user.creator = creator
     end
+  end
+
+  def add_creator_user(user, result)
+    add_user(user, result, true)
   end
 
   def add_mech(mech, fight_user, result)

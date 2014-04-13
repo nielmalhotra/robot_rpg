@@ -34,7 +34,7 @@ class User < ActiveRecord::Base
       fight.start_time = Time.now # change eventually
       fight.result = Fight::Result::PENDING
     end
-    fight_user = fight.add_user(self, FightUser::Result::ACCEPTED)
+    fight_user = fight.add_creator_user(self, FightUser::Result::ACCEPTED)
     fight.add_mech(mech, fight_user, FightMech::Result::PENDING)
     fight
   end
