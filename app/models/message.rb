@@ -9,7 +9,7 @@ class Message < ActiveRecord::Base
   end
 
   def read!
-    return unless !read
+    return if read
     self.update_attribute(:read, TRUE)
   end
 end
