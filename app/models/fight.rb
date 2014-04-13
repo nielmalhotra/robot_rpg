@@ -35,7 +35,24 @@ class Fight < ActiveRecord::Base
 
   def invite_user(user)
     # TODO validate not already invited
-    create_fight_user(user, FightUser::Result::INVITED)
+    add_user(user, FightUser::Result::INVITED)
+  end
+
+  def add_user(user, result)
+    FightUser.create do |fight_user|
+      fight_user.user = user
+      fight_user.fight = self
+      fight_user.result = result
+    end
+  end
+
+  def add_mech(mech, fight_user, result)
+    FightMech.create do |fight_mech|
+      fight_mech.mech = mech
+      fight_mech.fight_user = fight_user
+      fight_mech.fight = self
+      fight_mech.result = result
+    end
   end
 
   def run
@@ -60,23 +77,6 @@ class Fight < ActiveRecord::Base
 
     def finished
       where(result: Result::FINISHED)
-    end
-  end
-
-  def create_fight_user(user, result)
-    FightUser.create do |fight_user|
-      fight_user.user = user
-      fight_user.fight = self
-      fight_user.result = result
-    end
-  end
-
-  def create_fight_mech(mech, fight_user, result)
-    FightMech.create do |fight_mech|
-      fight_mech.mech = mech
-      fight_mech.fight_user = fight_user
-      fight_mech.fight = self
-      fight_mech.result = result
     end
   end
 end

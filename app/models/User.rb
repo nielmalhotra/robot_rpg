@@ -34,8 +34,8 @@ class User < ActiveRecord::Base
       fight.start_time = Time.now # change eventually
       fight.result = Fight::Result::PENDING
     end
-    fight_user = fight.create_fight_user(self, FightUser::Result::ACCEPTED)
-    fight.create_fight_mech(mech, fight_user, FightMech::Result::PENDING)
+    fight_user = fight.add_user(self, FightUser::Result::ACCEPTED)
+    fight.add_mech(mech, fight_user, FightMech::Result::PENDING)
     fight
   end
 
@@ -43,7 +43,7 @@ class User < ActiveRecord::Base
     fight_user = invited_fight.fight_users.where(user: self).invited.first
     if fight_user.present?
       fight_user.update_attribute(:result, FightUser::Result::ACCEPTED)
-      invited_fight.create_fight_mech(mech, fight_user, FightMech::Result::PENDING)
+      invited_fight.add_mech(mech, fight_user, FightMech::Result::PENDING)
     else
       raise "accept_fight couldnt find invited fight_user for fight.id=#{invited_fight.id} and user.id=#{self.id}"
     end
