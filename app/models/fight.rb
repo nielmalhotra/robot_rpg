@@ -69,6 +69,12 @@ class Fight < ActiveRecord::Base
     FightRunner.run_fight(self)
   end
 
+  def attributes
+    {
+        id: id
+    }
+  end
+
   module Result
     ERROR = -1
     PENDING = nil
