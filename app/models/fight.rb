@@ -43,6 +43,7 @@ class Fight < ActiveRecord::Base
   end
 
   module Result
+    ERROR = -1
     PENDING = nil
     IN_PROGRESS = 0
     FINISHED = 1
