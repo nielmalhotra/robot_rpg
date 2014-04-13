@@ -1,1 +1,11 @@
 Fightz
+
+%div{'ng-controller' => 'FightController', 'ng-init' => 'current_fights()'}
+  %form{class: 'simple-form', novalidate: ''}
+    Opponent:
+    %input{type: 'opponent', 'ng-model' => 'newFight.opponent'}
+    %br
+    Mech:
+    %input{type: 'mech', 'ng-model' => 'newFight.myMech'}
+    %br
+    %button{'ng-click' => 'create_fight(newFight)'} Create Fight

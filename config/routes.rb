@@ -10,6 +10,7 @@ RobotRpg::Application.routes.draw do
   get 'messages/unread_count', to: 'messages#unread_count'
   resources :user_sessions, only: [:create, :destroy]
   resources :users, only: [:create]
+  resources :fights, only: [:create, :index]
 
   delete 'logout' => 'user_sessions#destroy', :as => :logout
 end

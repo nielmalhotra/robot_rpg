@@ -1,6 +1,7 @@
 angular.module('robot_rpg')
 .controller('MessageController', ['$scope', '$http', '$messages', function($scope, $http, $messages) {
     $scope.create_message = function(msg) {
+        console.log($messages);
         $messages.save(msg, function(data){
             $scope.newmsg = angular.copy({});
             $scope.load_messages();
