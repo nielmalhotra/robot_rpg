@@ -58,6 +58,12 @@ class User < ActiveRecord::Base
     end
   end
 
+  def read_all_messages!
+    messages_received.each do |message|
+      message.read!
+    end
+  end
+
   acts_as_authentic do |c|
     c.login_field = :name
     c.validate_email_field = false

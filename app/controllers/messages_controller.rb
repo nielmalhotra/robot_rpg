@@ -2,18 +2,8 @@ class MessagesController < AngularTemplatesController
   before_filter :require_user
 
   def index
-    messages = []
-    current_user.messages_received.each do |m|
-      messages << {
-          read: m.read,
-          from: m.from.name,
-          subject: m.subject,
-          body: m.body,
-          id: m.id
-      }
-      m.read!
-    end
-    render json: messages
+    render json: current_user.messages_received
+    current_user.read_all_messages!
   end
 
   def create
