@@ -14,7 +14,14 @@ Fightz
       %table
         %thead
           %td
-            ID
+            All Fights
         %tr{'ng-repeat' => 'fight in fights'}
           %td
             {{fight.id}}
+      %table
+        %thead
+          %td
+            Invited Fights
+        %tr{'ng-repeat' => 'invited_fight in invited_fights'}
+          %td
+            {{invited_fight.id}}

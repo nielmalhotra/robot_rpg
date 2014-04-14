@@ -5,6 +5,10 @@ class FightsController < ApplicationController
     render json: current_user.fights
   end
 
+  def invited
+    render json: current_user.fights_invited
+  end
+
   def create
     fight = current_user.create_fight(Mech.find_by_name(params[:my_mech]))
     fight.invite_user(User.find_by_name(params[:opponent]))
