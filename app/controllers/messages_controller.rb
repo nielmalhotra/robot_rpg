@@ -22,6 +22,6 @@ class MessagesController < AngularTemplatesController
 
   def destroy
     current_user.messages_received.find(params[:id]).destroy
-    render json: {}
+    render json: {success: 'Message Deleted'}
   end
 end
