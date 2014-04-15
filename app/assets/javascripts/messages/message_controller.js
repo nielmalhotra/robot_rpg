@@ -1,16 +1,13 @@
 angular.module('robot_rpg')
 .controller('MessageController', ['$scope', '$http', '$messages', function($scope, $http, $messages) {
+    $scope.messages = $messages.query();
+
     $scope.create_message = function(msg) {
         console.log($messages);
         $messages.save(msg, function(data){
             $scope.newmsg = angular.copy({});
-            $scope.load_messages();
             $('#ng-notice').html(data.success);
         });
-    };
-
-    $scope.load_messages = function() {
-        $scope.messages = $messages.query();
     };
 
     $scope.delete_message = function(msg) {
