@@ -23,16 +23,20 @@
     %table
       %thead
         %tr
-          %td(colspan=2)
+          %td(colspan=3)
             Invited Fights
         %tr
           %td
             ID
           %td
+            Creator
+          %td
             Actions
       %tr{'ng-repeat' => 'invited_fight in invited_fights'}
         %td
           {{invited_fight.id}}
+        %td
+          {{invited_fight.creator_name}}
         %td
           %button{'ng-click' => 'deny_fight(invited_fight)'}
             Deny

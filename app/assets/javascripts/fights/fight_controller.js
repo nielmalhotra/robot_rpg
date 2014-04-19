@@ -19,7 +19,7 @@ angular.module('robot_rpg')
     }
 
     $scope.deny_fight = function(fight) {
-        fights.deny(fight, function(value, headers) {
+        fights.deny({id: fight.id}, function(value, headers) {
             $('#notice').html(value.success);
         });
     }

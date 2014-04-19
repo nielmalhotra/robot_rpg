@@ -69,9 +69,14 @@ class Fight < ActiveRecord::Base
     FightRunner.run_fight(self)
   end
 
+  def creator_name
+    creator.try(:name)
+  end
+
   def attributes
     {
-        id: id
+        id: id,
+        creator_name: creator_name
     }
   end
 
