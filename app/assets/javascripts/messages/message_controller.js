@@ -12,7 +12,7 @@ angular.module('robot_rpg')
     };
 
     $scope.delete_message = function(msg) {
-        messages.delete(msg, function(value, headers) {
+        messages.delete({id: msg.id}, function(value, headers) {
             $scope.messages.splice($scope.messages.indexOf(msg), 1);
             $('#notice').html(value.success);
         });
