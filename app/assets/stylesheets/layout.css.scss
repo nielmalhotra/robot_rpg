@@ -42,8 +42,19 @@ button:focus {
   @include contrasted(scale-lightness($green, 15));
 }
 
-thead td {
-  text-align: center !important;
+thead tr {
+  &:first-child td {
+    @include contrasted($purple);
+    font-weight: normal;
+    &:before {
+      font-size: 10px;
+      content: '▷';
+      float: left;
+    }
+  }
+  td {
+    text-align: center !important;
+  }
 }
 
 form {
