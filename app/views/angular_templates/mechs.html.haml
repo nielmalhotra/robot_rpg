@@ -4,5 +4,15 @@
     %input{type: 'name', 'ng-model' => 'newmech.name'}
     %button{'ng-click' => 'create_mech(newmech)'} Save Mech
   %table
+    %thead
+      %tr
+        %td(colspan=2 style="text-align: center;")
+          Mechs
+      %tr
+        %td
+          ID
+        %td
+          Name
     %tr{'ng-repeat' => 'mech in mechs'}
+      %td {{mech.id}}
       %td {{mech.name}}

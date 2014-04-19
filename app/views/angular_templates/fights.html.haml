@@ -13,15 +13,24 @@ Fightz
     .medium-3.columns
       %table
         %thead
-          %td
-            All Fights
+          %tr
+            %td(colspan=1 style="text-align: center;")
+              All Fights
+          %tr
+            %td
+              ID
         %tr{'ng-repeat' => 'fight in fights'}
           %td
             {{fight.id}}
+
       %table
         %thead
-          %td
-            Invited Fights
+          %tr
+            %td(colspan=1 style="text-align: center;")
+              Invited Fights
+          %tr
+            %td
+              ID
         %tr{'ng-repeat' => 'invited_fight in invited_fights'}
           %td
             {{invited_fight.id}}

@@ -12,14 +12,18 @@
     .medium-3.columns
       %table
         %thead
-          %td
-            From
-          %td
-            Subject
-          %td
-            Body
-          %td
-            Delete
+          %tr
+            %td(colspan=4 style="text-align: center;")
+              Messages
+          %tr
+            %td
+              From
+            %td
+              Subject
+            %td
+              Body
+            %td
+              Delete
         %tr{'ng-repeat' => 'message in messages',
             'ng-mouseenter' => 'set_message_body(this.message.body);',
             class: '{{message.read ? "" : "unread"}}'}
