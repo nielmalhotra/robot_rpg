@@ -1,0 +1,63 @@
+@import 'colors';
+@import "compass/utilities/color/contrast";
+@import "compass/css3/images";
+
+tr.unread {
+    background: aliceblue !important;
+}
+
+html, body {
+    height: 100%;
+    font-family: "Courier New", Courier, monospace;
+}
+
+body {
+    @include contrasted($dark);
+}
+
+.body {
+    @include contrasted($dark);
+    border: 3px solid $white;
+    min-height: 96%;
+    margin-top: 2%;
+}
+
+a, h3 {
+    color: $white !important;
+    font-family: "Courier New", Courier, monospace;
+}
+
+button {
+    @include contrasted($green);
+    border: 1px solid $white;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+button:hover {
+    @include contrasted(scale-lightness($green, 10));
+}
+
+button:focus {
+  @include contrasted(scale-lightness($green, 15));
+}
+
+thead td {
+  text-align: center !important;
+}
+
+form {
+  border: 1px solid $white;
+  padding: 2px;
+  input {
+    width: 100%;
+  }
+  button {
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+.panel {
+    @include contrasted($dark);
+}

@@ -2,10 +2,9 @@
   %form{class: 'simple-form', novalidate: ''}
     To:
     %input{type: 'to', 'ng-model' => 'newmsg.to'}
-    %br
     Subject:
     %input{type: 'subject', 'ng-model' => 'newmsg.subject'}
-    %br
+    Body:
     %textarea{type: 'body', 'ng-model' => 'newmsg.body'}
     %button{'ng-click' => 'create_message(newmsg)'} Send
   .row
@@ -13,7 +12,7 @@
       %table
         %thead
           %tr
-            %td(colspan=4 style="text-align: center;")
+            %td(colspan=4)
               Messages
           %tr
             %td
