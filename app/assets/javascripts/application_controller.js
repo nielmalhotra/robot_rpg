@@ -2,7 +2,7 @@
 angular.module('robot_rpg')
 .controller('ApplicationController', ['$scope', '$rootScope', '$http', function($scope, $rootScope, $http) {
     $rootScope.$on('$locationChangeSuccess', function (event) {
-        $('#ng-notice').html('');
+        $('#notice').html('');
         $http({
             method : 'GET',
             url : 'messages/unread_count.json'

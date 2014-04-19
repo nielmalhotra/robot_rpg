@@ -5,7 +5,7 @@ angular.module('robot_rpg')
     $scope.create_mech = function(mech) {
         mechs.save(mech, function(data) {
             $scope.newmech = angular.copy({});
-            $('#ng-notice').html(data.success);
+            $('#notice').html(data.success);
         });
     };
 }]);

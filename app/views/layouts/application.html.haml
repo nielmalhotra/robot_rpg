@@ -8,7 +8,7 @@
   %body
     .body
       - if current_user.blank?
-        %p#notice= notice
+        %p#rails-notice= notice
         %h3 who are you?
         login:
         = render 'user_sessions/new'
@@ -22,8 +22,8 @@
                 %h1
             .row
               .small-12.columns
-                %p#notice= notice
-                %p#ng-notice
+                %p#rails-notice(style="display: none;")=# notice # TODO figure out how to handle better
+                %p#notice
             .row
               .medium-2.columns
                 %ul.side-nav

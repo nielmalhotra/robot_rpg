@@ -6,7 +6,7 @@ angular.module('robot_rpg')
     $scope.create_fight = function(fight) {
         fights.save(fight, function(data) {
             $scope.newFight = angular.copy({});
-            $('#ng-notice').html(data.success);
+            $('#notice').html(data.success);
         });
     };
 }]);
