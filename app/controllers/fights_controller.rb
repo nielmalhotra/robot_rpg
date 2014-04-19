@@ -9,6 +9,16 @@ class FightsController < ApplicationController
     render json: current_user.fights_invited
   end
 
+  def accept
+    current_user.accept_fight(Fight.find(params[:id]), Mech.find_by_name(params[:my_mech]))
+    render json: {success: 'Fight Accepted'}
+  end
+
+  def deny
+    current_user.deny_fight(Fight.find(params[:id]))
+    render json: {success: 'Fight Denied'}
+  end
+
   def create
     begin
       fight = current_user.create_fight(Mech.find_by_name(params[:my_mech]))

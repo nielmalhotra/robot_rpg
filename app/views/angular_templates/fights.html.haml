@@ -23,11 +23,20 @@
     %table
       %thead
         %tr
-          %td(colspan=1)
+          %td(colspan=2)
             Invited Fights
         %tr
           %td
             ID
+          %td
+            Actions
       %tr{'ng-repeat' => 'invited_fight in invited_fights'}
         %td
           {{invited_fight.id}}
+        %td
+          %button{'ng-click' => 'deny_fight(invited_fight)'}
+            Deny
+          Mech:
+          %input{type: 'mech', 'ng-model' => 'invited_fight.my_mech'}
+          %button{'ng-click' => 'accept_fight(invited_fight)'}
+            Accept

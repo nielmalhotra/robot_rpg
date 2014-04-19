@@ -11,6 +11,10 @@ RobotRpg::Application.routes.draw do
   resources :user_sessions, only: [:create, :destroy]
   resources :users, only: [:create]
   resources :fights, only: [:create, :index] do
+    member do
+      post :accept
+      get :deny
+    end
     collection do
       get :invited
     end

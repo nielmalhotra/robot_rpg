@@ -1,6 +1,11 @@
 angular.module('robot_rpg')
 .service('fights', ['$resource', function($resource) {
-    return $resource('/fights/:id.:format',
-                     { format: 'json' , id: '@id'},
-                     {'invited': {method: 'GET', isArray: true, params: {id: 'invited'}}});
+    var actions = {
+        'invited': {method: 'GET', isArray: true, params: {action: 'invited'}},
+        'accept':  {method: 'POST', params: {action: 'accept'}},
+        'deny':    {method: 'GET', params: {action: 'deny'}}
+    };
+    return $resource('/fights/:id/:action.:format',
+                     {format: 'json' , id: '@id'},
+                     actions);
 }]);

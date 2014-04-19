@@ -11,4 +11,16 @@ angular.module('robot_rpg')
             $('#notice').html(headers.data.fail);
         });
     };
+
+    $scope.accept_fight = function(fight) {
+        fights.accept({id: fight.id}, fight, function(value, headers) {
+            $('#notice').html(value.success);
+        });
+    }
+
+    $scope.deny_fight = function(fight) {
+        fights.deny(fight, function(value, headers) {
+            $('#notice').html(value.success);
+        });
+    }
 }]);
