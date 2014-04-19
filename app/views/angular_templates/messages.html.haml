@@ -1,37 +1,36 @@
-%div{'ng-controller' => 'MessageController'}
-  %form{class: 'simple-form', novalidate: ''}
-    To:
-    %input{type: 'to', 'ng-model' => 'newmsg.to'}
-    Subject:
-    %input{type: 'subject', 'ng-model' => 'newmsg.subject'}
-    Body:
-    %textarea{type: 'body', 'ng-model' => 'newmsg.body'}
-    %button{'ng-click' => 'create_message(newmsg)'} Send
-  .row
-    .medium-3.columns
-      %table
-        %thead
-          %tr
-            %td(colspan=4)
-              Messages
-          %tr
-            %td
-              From
-            %td
-              Subject
-            %td
-              Body
-            %td
-              Delete
-        %tr{'ng-repeat' => 'message in messages',
-            'ng-mouseenter' => 'set_message_body(this.message.body);',
-            class: '{{message.read ? "" : "unread"}}'}
+%form{class: 'simple-form', novalidate: ''}
+  To:
+  %input{type: 'to', 'ng-model' => 'newmsg.to'}
+  Subject:
+  %input{type: 'subject', 'ng-model' => 'newmsg.subject'}
+  Body:
+  %textarea{type: 'body', 'ng-model' => 'newmsg.body'}
+  %button{'ng-click' => 'create_message(newmsg)'} Send
+.row
+  .medium-3.columns
+    %table
+      %thead
+        %tr
+          %td(colspan=4)
+            Messages
+        %tr
           %td
-            {{message.from_name}}
+            From
           %td
-            {{message.subject}}
+            Subject
           %td
-            {{message.body}}
+            Body
           %td
-            %button{'ng-click' => 'delete_message(message)'}
-              Delete Message
+            Delete
+      %tr{'ng-repeat' => 'message in messages',
+          'ng-mouseenter' => 'set_message_body(this.message.body);',
+          class: '{{message.read ? "" : "unread"}}'}
+        %td
+          {{message.from_name}}
+        %td
+          {{message.subject}}
+        %td
+          {{message.body}}
+        %td
+          %button{'ng-click' => 'delete_message(message)'}
+            Delete Message

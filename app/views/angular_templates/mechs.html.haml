@@ -1,18 +1,17 @@
-%div{'ng-controller' => 'MechController'}
-  %form{class: 'simple-form', novalidate: ''}
-    Name:
-    %input{type: 'name', 'ng-model' => 'newmech.name'}
-    %button{'ng-click' => 'create_mech(newmech)'} Save Mech
-  %table
-    %thead
-      %tr
-        %td(colspan=2)
-          Mechs
-      %tr
-        %td
-          ID
-        %td
-          Name
-    %tr{'ng-repeat' => 'mech in mechs'}
-      %td {{mech.id}}
-      %td {{mech.name}}
+%form{class: 'simple-form', novalidate: ''}
+  Name:
+  %input{type: 'name', 'ng-model' => 'newmech.name'}
+  %button{'ng-click' => 'create_mech(newmech)'} Save Mech
+%table
+  %thead
+    %tr
+      %td(colspan=2)
+        Mechs
+    %tr
+      %td
+        ID
+      %td
+        Name
+  %tr{'ng-repeat' => 'mech in mechs'}
+    %td {{mech.id}}
+    %td {{mech.name}}
