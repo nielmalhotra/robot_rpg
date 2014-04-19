@@ -4,9 +4,11 @@ angular.module('robot_rpg')
     $scope.invited_fights = fights.invited();
 
     $scope.create_fight = function(fight) {
-        fights.save(fight, function(data) {
+        fights.save(fight, function(value, headers) {
             $scope.newFight = angular.copy({});
-            $('#notice').html(data.success);
+            $('#notice').html(value.success);
+        }, function(headers) {
+            $('#notice').html(headers.data.fail);
         });
     };
 }]);

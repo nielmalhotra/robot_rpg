@@ -7,13 +7,17 @@ class MessagesController < AngularTemplatesController
   end
 
   def create
-    Message.create do |msg|
+    m = Message.create do |msg|
       msg.to = User.find_by_name params[:to]
       msg.from = current_user
       msg.subject = params[:subject]
       msg.body = params[:body]
     end
-    render json: {success: 'Message Sent'}
+    if m.valid?
+      render json: {success: 'Message Sent'}
+    else
+      render json: {fail: 'Message Not Sent. Do it better.'}, status: 400
+    end
   end
 
   def unread_count

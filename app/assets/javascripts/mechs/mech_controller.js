@@ -3,9 +3,11 @@ angular.module('robot_rpg')
     $scope.mechs = mechs.query();
 
     $scope.create_mech = function(mech) {
-        mechs.save(mech, function(data) {
+        mechs.save(mech, function(value, headers) {
             $scope.newmech = angular.copy({});
-            $('#notice').html(data.success);
+            $('#notice').html(value.success);
+        }, function(headers) {
+            $('#notice').html(headers.data.fail);
         });
     };
 }]);

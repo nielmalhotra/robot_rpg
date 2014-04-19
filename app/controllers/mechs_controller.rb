@@ -6,10 +6,14 @@ class MechsController < AngularTemplatesController
   end
 
   def create
-    @mech = Mech.new
-    @mech.name = params[:name]
-    @mech.user_id = current_user.id
-    @mech.save
-    render json: {success: "You have created a mech named #{@mech.name}"}
+    mech = Mech.create do |mech|
+      mech.name = params[:name]
+      mech.user_id = current_user.id
+    end
+    if mech.valid?
+      render json: {success: "You have created a mech named #{mech.name}"}
+    else
+      render json: {fail: 'Mech Not Created. Do it better.'}, status: 400
+    end
   end
 end

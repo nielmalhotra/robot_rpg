@@ -3,16 +3,18 @@ angular.module('robot_rpg')
     $scope.messages = messages.query();
 
     $scope.create_message = function(msg) {
-        messages.save(msg, function(data){
+        messages.save(msg, function(value, headers) {
             $scope.newmsg = angular.copy({});
-            $('#notice').html(data.success);
+            $('#notice').html(value.success);
+        }, function(headers) {
+            $('#notice').html(headers.data.fail);
         });
     };
 
     $scope.delete_message = function(msg) {
-        messages.delete(msg, function(data) {
+        messages.delete(msg, function(value, headers) {
             $scope.messages.splice($scope.messages.indexOf(msg), 1);
-            $('#notice').html(data.success);
+            $('#notice').html(value.success);
         });
     };
 }]);
