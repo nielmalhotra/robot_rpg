@@ -17,6 +17,16 @@ class FightsController < ApplicationController
     render json: current_user.fights_accepted.select(&:pending?)
   end
 
+  def create
+    fight = current_user.create_fight(Mech.find_by_name(params[:my_mech]))
+    fight.invite_user(User.find_by_name(params[:opponent]))
+    if fight.valid?
+      render json: {success: 'Fight Created! Huaaah!'}
+    else
+      render json: {fail: 'Fight Not Created. Do it better.'}, status: 400
+    end
+  end
+
   def begin
     f = Fight.find(params[:id])
     return if f.creator != current_user # TODO turn into filter
@@ -39,15 +49,5 @@ class FightsController < ApplicationController
   def deny
     current_user.deny_fight(Fight.find(params[:id]))
     render json: {success: 'Fight Denied'}
-  end
-
-  def create
-    fight = current_user.create_fight(Mech.find_by_name(params[:my_mech]))
-    fight.invite_user(User.find_by_name(params[:opponent]))
-    if fight.valid?
-      render json: {success: 'Fight Created! Huaaah!'}
-    else
-      render json: {fail: 'Fight Not Created. Do it better.'}, status: 400
-    end
   end
 end
