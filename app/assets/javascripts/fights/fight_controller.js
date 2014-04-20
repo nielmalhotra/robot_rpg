@@ -15,6 +15,21 @@ angular.module('robot_rpg')
         });
     };
 
+    $scope.begin = function(fight) {
+        fights.begin({id: fight.id}, function(value, headers) {
+            $scope.owned_fights = fights.owned(); // TODO not necessary...
+            $scope.upcoming_fights = fights.upcoming(); // TODO not necessary...
+            $('#notice').html(value.success);
+        });
+    }
+
+    $scope.invite = function(fight) {
+        fights.invite({id: fight.id}, {opponent: fight.opponent}, function(value, headers) {
+            $scope.owned_fights = fights.owned(); // TODO not necessary...
+            $('#notice').html(value.success);
+        });
+    }
+
     $scope.accept_fight = function(fight) {
         fights.accept({id: fight.id}, fight, function(value, headers) {
             $scope.invited_fights = fights.invited(); // TODO not necessary...

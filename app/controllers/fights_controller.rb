@@ -17,6 +17,20 @@ class FightsController < ApplicationController
     render json: current_user.fights_accepted.select(&:pending?)
   end
 
+  def begin
+    f = Fight.find(params[:id])
+    return if f.creator != current_user # TODO turn into filter
+    f.run
+    render json: {success: 'Fight Has Begun!'}
+  end
+
+  def invite
+    f = Fight.find(params[:id])
+    return if f.creator != current_user # TODO turn into filter
+    f.invite_user(User.find_by_name(params[:opponent]))
+    render json: {success: 'User Invited'}
+  end
+
   def accept
     current_user.accept_fight(Fight.find(params[:id]), Mech.find_by_name(params[:my_mech]))
     render json: {success: 'Fight Accepted'}

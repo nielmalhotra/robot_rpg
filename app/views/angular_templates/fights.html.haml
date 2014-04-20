@@ -11,18 +11,31 @@
     %table
       %thead
         %tr
-          %td(colspan=2)
+          %td(colspan=4)
             My Fights
         %tr
           %td
             ID
           %td
             Users Invited
+          %td
+            Users Accepted
+          %td
+            Actions
       %tr{'ng-repeat' => 'owned_fight in owned_fights'}
         %td
           {{owned_fight.id}}
         %td
           {{owned_fight.users_invited_names.join(',')}}
+        %td
+          {{owned_fight.users_accepted_names.join(',')}}
+        %td
+          %button{'ng-click' => 'begin(owned_fight)'}
+            Start
+          Opponent:
+          %input{type: 'mech', 'ng-model' => 'owned_fight.opponent'}
+          %button{'ng-click' => 'invite(owned_fight)'}
+            Invite
     %table
       %thead
         %tr

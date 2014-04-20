@@ -4,6 +4,8 @@ angular.module('robot_rpg')
         'invited': {method: 'GET', isArray: true, params: {action: 'invited'}},
         'owned':   {method: 'GET', isArray: true, params: {action: 'owned'}},
         'upcoming':{method: 'GET', isArray: true, params: {action: 'upcoming'}},
+        'begin':   {method: 'GET', params: {action: 'begin'}},
+        'invite':  {method: 'POST', params: {action: 'invite'}},
         'accept':  {method: 'POST', params: {action: 'accept'}},
         'deny':    {method: 'GET', params: {action: 'deny'}}
     };

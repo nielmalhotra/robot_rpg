@@ -12,6 +12,8 @@ RobotRpg::Application.routes.draw do
   resources :users, only: [:create]
   resources :fights, only: [:create, :index] do
     member do
+      get :begin
+      post :invite
       post :accept
       get :deny
     end

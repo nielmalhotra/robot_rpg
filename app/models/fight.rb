@@ -81,11 +81,16 @@ class Fight < ActiveRecord::Base
     users_invited.map(&:name)
   end
 
+  def users_accepted_names
+    users_accepted.map(&:name)
+  end
+
   def attributes
     {
         id: id,
         creator_name: creator_name,
-        users_invited_names: users_invited_names
+        users_invited_names: users_invited_names,
+        users_accepted_names: users_accepted_names
     }
   end
 
