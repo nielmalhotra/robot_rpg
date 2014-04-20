@@ -1,6 +1,10 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
+  rescue_from Exception do |exception|
+    render json: {fail: 'Something bad happened. Try again.'}, status: 500
+  end
+
   helper_method :current_user_session, :current_user
 
   def root
