@@ -26,6 +26,7 @@ angular.module('robot_rpg')
     $scope.invite = function(fight) {
         fights.invite({id: fight.id}, {opponent: fight.opponent}, function(value, headers) {
             $scope.owned_fights = fights.owned(); // TODO not necessary...
+            $scope.upcoming_fights = fights.upcoming(); // TODO not necessary...
             $('#notice').html(value.success);
         });
     }
