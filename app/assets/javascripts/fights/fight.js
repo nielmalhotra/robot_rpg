@@ -3,6 +3,7 @@ angular.module('robot_rpg')
     var actions = {
         'invited': {method: 'GET', isArray: true, params: {action: 'invited'}},
         'owned':   {method: 'GET', isArray: true, params: {action: 'owned'}},
+        'upcoming':{method: 'GET', isArray: true, params: {action: 'upcoming'}},
         'accept':  {method: 'POST', params: {action: 'accept'}},
         'deny':    {method: 'GET', params: {action: 'deny'}}
     };

@@ -11,7 +11,7 @@
     %table
       %thead
         %tr
-          %td(colspan=3)
+          %td(colspan=2)
             My Fights
         %tr
           %td
@@ -23,6 +23,21 @@
           {{owned_fight.id}}
         %td
           {{owned_fight.users_invited_names.join(',')}}
+    %table
+      %thead
+        %tr
+          %td(colspan=2)
+            Upcoming Fights
+        %tr
+          %td
+            ID
+          %td
+            Creator
+      %tr{'ng-repeat' => 'upcoming_fight in upcoming_fights'}
+        %td
+          {{upcoming_fight.id}}
+        %td
+          {{upcoming_fight.creator_name}}
     %table
       %thead
         %tr
