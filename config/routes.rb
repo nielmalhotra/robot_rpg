@@ -18,9 +18,10 @@ RobotRpg::Application.routes.draw do
       get :deny
     end
     collection do
+      get :past
+      get :invited
       get :owned
       get :upcoming
-      get :invited
     end
   end
 

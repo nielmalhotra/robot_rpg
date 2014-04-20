@@ -4,6 +4,17 @@ class FightUser < ActiveRecord::Base
 
   has_many :fight_mechs
 
+  def result_str
+    case result # TODO more robust solution
+      when Result::WON
+        'won'
+      when Result::LOST
+        'lost'
+      else
+        ''
+    end
+  end
+
   module Result
     INVITED = nil
     ACCEPTED = 0

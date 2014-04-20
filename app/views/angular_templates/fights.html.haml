@@ -62,6 +62,21 @@
     %table
       %thead
         %tr
+          %td(colspan=2)
+            Fight Record
+        %tr
+          %td
+            Date
+          %td
+            Result
+      %tr{'ng-repeat' => 'past_fight in past_fights | orderBy:\'start_time\':true'}
+        %td
+          {{past_fight.start_time | date:'EEE.dd-MM-yyyy@HH:mm(Z)'}}
+        %td
+          {{past_fight.current_user_result}}
+    %table
+      %thead
+        %tr
           %td(colspan=3)
             Invited Fights
         %tr

@@ -1,5 +1,6 @@
 angular.module('robot_rpg')
 .controller('FightController', ['$scope', '$http', 'fights', function($scope, $http, fights) {
+    $scope.past_fights = fights.past();
     $scope.invited_fights = fights.invited();
     $scope.owned_fights = fights.owned();
     $scope.upcoming_fights = fights.upcoming();
@@ -17,6 +18,7 @@ angular.module('robot_rpg')
 
     $scope.begin = function(fight) {
         fights.begin({id: fight.id}, function(value, headers) {
+            $scope.past_fights = fights.past(); // TODO not necessary...
             $scope.owned_fights = fights.owned(); // TODO not necessary...
             $scope.upcoming_fights = fights.upcoming(); // TODO not necessary...
             $('#notice').html(value.success);

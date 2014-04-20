@@ -88,6 +88,7 @@ class Fight < ActiveRecord::Base
   def attributes
     {
         id: id,
+        start_time: start_time,
         creator_name: creator_name,
         users_invited_names: users_invited_names,
         users_accepted_names: users_accepted_names
