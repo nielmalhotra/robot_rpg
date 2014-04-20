@@ -46,12 +46,18 @@ thead tr {
   &:first-child td {
     @include contrasted($purple);
     font-weight: normal;
+
     &:before {
       font-size: 10px;
       content: '▷';
       float: left;
     }
   }
+
+  &:nth-child(2) {
+    @include contrasted(#A0A0A0);
+  }
+
   td {
     text-align: center !important;
   }
