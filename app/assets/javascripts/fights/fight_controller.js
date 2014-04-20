@@ -11,8 +11,6 @@ angular.module('robot_rpg')
             $scope.owned_fights = fights.owned(); // TODO not necessary...
             $scope.upcoming_fights = fights.upcoming(); // TODO not necessary...
             $('#notice').html(value.success);
-        }, function(headers) {
-            $('#notice').html(headers.data.fail);
         });
     };
 

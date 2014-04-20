@@ -6,8 +6,6 @@ angular.module('robot_rpg')
         messages.save(msg, function(value, headers) {
             $scope.newmsg = angular.copy({});
             $('#notice').html(value.success);
-        }, function(headers) {
-            $('#notice').html(headers.data.fail);
         });
     };
 
