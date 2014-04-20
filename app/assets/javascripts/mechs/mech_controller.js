@@ -5,6 +5,7 @@ angular.module('robot_rpg')
     $scope.create_mech = function(mech) {
         mechs.save(mech, function(value, headers) {
             $scope.newmech = angular.copy({});
+            $scope.mechs = mechs.query();
             $('#notice').html(value.success);
         }, function(headers) {
             $('#notice').html(headers.data.fail);
