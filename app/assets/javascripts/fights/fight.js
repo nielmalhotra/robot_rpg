@@ -2,6 +2,7 @@ angular.module('robot_rpg')
 .service('fights', ['$resource', function($resource) {
     var actions = {
         'invited': {method: 'GET', isArray: true, params: {action: 'invited'}},
+        'owned':   {method: 'GET', isArray: true, params: {action: 'owned'}},
         'accept':  {method: 'POST', params: {action: 'accept'}},
         'deny':    {method: 'GET', params: {action: 'deny'}}
     };

@@ -12,6 +12,21 @@
       %thead
         %tr
           %td(colspan=3)
+            My Fights
+        %tr
+          %td
+            ID
+          %td
+            Users Invited
+      %tr{'ng-repeat' => 'owned_fight in owned_fights'}
+        %td
+          {{owned_fight.id}}
+        %td
+          {{owned_fight.users_invited_names.join(',')}}
+    %table
+      %thead
+        %tr
+          %td(colspan=3)
             Invited Fights
         %tr
           %td

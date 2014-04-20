@@ -29,6 +29,10 @@ class User < ActiveRecord::Base
     fight_users.lost.collect(&:fight)
   end
 
+  def fights_created
+    fight_users.creator.collect(&:fight)
+  end
+
   def create_fight(mech)
     fight = Fight.create do |fight|
       fight.start_time = Time.now # change eventually

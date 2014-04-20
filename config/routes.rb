@@ -16,6 +16,7 @@ RobotRpg::Application.routes.draw do
       get :deny
     end
     collection do
+      get :owned
       get :invited
     end
   end

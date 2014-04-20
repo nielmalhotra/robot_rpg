@@ -34,5 +34,9 @@ class FightUser < ActiveRecord::Base
     def lost
       where(result: Result::LOST)
     end
+
+    def creator
+      where(creator: true)
+    end
   end
 end

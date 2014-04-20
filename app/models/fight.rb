@@ -10,7 +10,7 @@ class Fight < ActiveRecord::Base
   validates_presence_of :start_time
 
   def creator
-    fight_users.where(creator: true).first.try(:user)
+    fight_users.creator.collect(&:user).first
   end
 
   def mechs_entered_by_user(user)
@@ -69,14 +69,23 @@ class Fight < ActiveRecord::Base
     FightRunner.run_fight(self)
   end
 
+  def pending?
+    self.result == Result::PENDING
+  end
+
   def creator_name
     creator.try(:name)
+  end
+
+  def users_invited_names
+    users_invited.map(&:name)
   end
 
   def attributes
     {
         id: id,
-        creator_name: creator_name
+        creator_name: creator_name,
+        users_invited_names: users_invited_names
     }
   end
 

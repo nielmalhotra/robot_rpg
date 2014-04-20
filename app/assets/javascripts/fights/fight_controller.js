@@ -2,6 +2,7 @@ angular.module('robot_rpg')
 .controller('FightController', ['$scope', '$http', 'fights', function($scope, $http, fights) {
     $scope.fights = fights.query()
     $scope.invited_fights = fights.invited();
+    $scope.owned_fights = fights.owned();
 
     $scope.create_fight = function(fight) {
         fights.save(fight, function(value, headers) {

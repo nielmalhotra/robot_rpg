@@ -9,6 +9,10 @@ class FightsController < ApplicationController
     render json: current_user.fights_invited
   end
 
+  def owned
+    render json: current_user.fights_created.select(&:pending?)
+  end
+
   def accept
     current_user.accept_fight(Fight.find(params[:id]), Mech.find_by_name(params[:my_mech]))
     render json: {success: 'Fight Accepted'}
