@@ -85,13 +85,23 @@ class Fight < ActiveRecord::Base
     users_accepted.map(&:name)
   end
 
+  def users_won_names
+    users_won.map(&:name)
+  end
+
+  def users_lost_names
+    users_lost.map(&:name)
+  end
+
   def attributes
     {
         id: id,
         start_time: start_time,
         creator_name: creator_name,
         users_invited_names: users_invited_names,
-        users_accepted_names: users_accepted_names
+        users_accepted_names: users_accepted_names,
+        users_won_names: users_won_names,
+        users_lost_names: users_lost_names
     }
   end
 

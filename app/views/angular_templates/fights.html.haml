@@ -62,18 +62,25 @@
     %table
       %thead
         %tr
-          %td(colspan=2)
+          %td(colspan=3)
             Fight Record
         %tr
           %td
             Date
           %td
             Result
+          %td
+            Participants
       %tr{'ng-repeat' => 'past_fight in past_fights | orderBy:\'start_time\':true'}
         %td
           {{past_fight.start_time | date:'EEE.dd-MM-yyyy@HH:mm(Z)'}}
         %td
           {{past_fight.current_user_result}}
+        %td
+          %b(style="display:block;"){'ng-repeat' => 'users_won_name in past_fight.users_won_names'}
+            {{users_won_name}}
+          %span(style="display:block;"){'ng-repeat' => 'users_lost_name in past_fight.users_lost_names'}
+            {{users_lost_name}}
     %table
       %thead
         %tr
