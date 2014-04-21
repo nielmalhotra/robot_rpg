@@ -13,7 +13,7 @@ class MechsController < AngularTemplatesController
     if mech.valid?
       render json: {success: "You have created a mech named #{mech.name}"}
     else
-      render json: {fail: 'Mech Not Created. Do it better.'}, status: 400
+      raise ValidationException.new('Mech Not Created. Do it better!')
     end
   end
 end

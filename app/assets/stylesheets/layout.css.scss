@@ -80,6 +80,10 @@ form {
   @include contrasted($dark);
 }
 
+.error.validation {
+  @include contrasted(orange);
+}
+
 .animate-repeat {
   &.ng-enter, &.ng-leave {
     -webkit-transition:all linear 0.5s;

@@ -8,7 +8,7 @@ angular
         return {
             'responseError': function(response) {
                 if (response.status == 500 || response.status == 400) {
-                    $rootScope.error_messages.push(response.data.fail);
+                    $rootScope.error_messages.push(response.data);
                 }
                 $timeout(function() {
                     $rootScope.error_messages.shift();

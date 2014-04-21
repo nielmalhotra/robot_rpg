@@ -6,6 +6,8 @@ class Mech < ActiveRecord::Base
   has_many :fight_mechs
   has_many :fights, through: :fight_mechs
 
+  validates_presence_of :name
+
   def attributes
     {
         id: id,

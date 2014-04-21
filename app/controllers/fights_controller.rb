@@ -56,7 +56,7 @@ class FightsController < ApplicationController
     if fight.valid?
       render json: {success: 'Fight Created! Huaaah!'}
     else
-      render json: {fail: 'Fight Not Created. Do it better.'}, status: 400
+      raise ValidationException.new('Fight Not Created. Do it better.')
     end
   end
 

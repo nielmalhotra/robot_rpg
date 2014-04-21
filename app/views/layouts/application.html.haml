@@ -24,8 +24,9 @@
               .small-12.columns
                 %p#rails-notice(style="display: none;")=# notice # TODO figure out how to handle better
                 %p#notice
-                %span.error.animate-repeat{'ng-repeat' => 'error_message in error_messages track by $index'}
-                  {{error_message}}
+                %span.error.animate-repeat{'ng-repeat' => 'error_message in error_messages track by $index',
+                                           'class' => '{{error_message.fail_class}}'}
+                  {{error_message.fail_s}}
             .row
               .medium-2.columns
                 %ul.side-nav

@@ -16,7 +16,7 @@ class MessagesController < AngularTemplatesController
     if m.valid?
       render json: {success: 'Message Sent'}
     else
-      render json: {fail: 'Message Not Sent. Do it better.'}, status: 400
+      raise ValidationException.new('Message Not Sent. Do it better.')
     end
   end
 
