@@ -12,6 +12,29 @@
       %thead
         %tr
           %td(colspan=4)
+            In Progress Fights
+        %tr
+          %td
+            ID
+          %td
+            Users Invited
+          %td
+            Users Accepted
+          %td
+            View
+      %tr{'ng-repeat' => 'in_progress_fight in in_progress_fights'}
+        %td
+          {{in_progress_fight.id}}
+        %td
+          {{in_progress_fight.users_invited_names.join(',')}}
+        %td
+          {{in_progress_fight.users_accepted_names.join(',')}}
+        %td
+          %a{:href => '#/battle/'} Home
+    %table
+      %thead
+        %tr
+          %td(colspan=4)
             Fights Created
         %tr
           %td

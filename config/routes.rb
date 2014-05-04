@@ -22,6 +22,7 @@ RobotRpg::Application.routes.draw do
       get :invited
       get :owned
       get :upcoming
+      get :in_progress
     end
   end
 

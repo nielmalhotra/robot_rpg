@@ -66,7 +66,7 @@ class Fight < ActiveRecord::Base
   end
 
   def run
-    FightRunner.run_fight(self)
+    #FightRunner.run_fight(self)
   end
 
   def pending?

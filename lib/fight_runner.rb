@@ -1,4 +1,7 @@
 module FightRunner
+  def self.start(fight)
+    fight.update_attribute(:result, Fight::Result::IN_PROGRESS)
+  end
 
   def self.run_fight(fight)
     with_fight_status_update fight do

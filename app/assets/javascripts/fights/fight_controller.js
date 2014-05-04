@@ -4,6 +4,7 @@ angular.module('robot_rpg')
     $scope.invited_fights = fights.invited();
     $scope.owned_fights = fights.owned();
     $scope.upcoming_fights = fights.upcoming();
+    $scope.in_progress_fights = fights.in_progress();
 
     $scope.create_fight = function(fight) {
         fights.save(fight, function(value, headers) {
@@ -19,6 +20,7 @@ angular.module('robot_rpg')
             $scope.past_fights = fights.past(); // TODO not necessary...
             $scope.owned_fights = fights.owned(); // TODO not necessary...
             $scope.upcoming_fights = fights.upcoming(); // TODO not necessary...
+            $scope.in_progress_fights = fights.in_progress(); // TODO not necessary...
             $('#notice').html(value.success);
         });
     }
