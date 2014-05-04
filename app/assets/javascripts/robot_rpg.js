@@ -24,4 +24,5 @@ angular
         .when('/messages', {controller: 'MessageController', templateUrl: 'angular_templates/messages'})
         .when('/mechs', {controller: 'MechController', templateUrl: 'angular_templates/mechs'})
         .when('/fights', {controller: 'FightController', templateUrl: 'angular_templates/fights'})
+        .when('/battle/:fightId', {controller: 'BattleController', templateUrl: 'angular_templates/battle'})
 }]);

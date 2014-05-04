@@ -21,7 +21,7 @@
           %td
             Users Accepted
           %td
-            View
+            Actions
       %tr{'ng-repeat' => 'in_progress_fight in in_progress_fights'}
         %td
           {{in_progress_fight.id}}
@@ -30,7 +30,7 @@
         %td
           {{in_progress_fight.users_accepted_names.join(',')}}
         %td
-          %a{:href => '#/battle/'} Home
+          %a{:href => '#/battle/{{in_progress_fight.id}}'} View
     %table
       %thead
         %tr
