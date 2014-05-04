@@ -1,9 +1,9 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  rescue_from Exception do |exception| # must be above other rescue_for blocks!
-    render json: {fail_s: 'Something bad happened. Try again.'}, status: 500
-  end
+  #rescue_from Exception do |exception| # must be above other rescue_for blocks!
+  #  render json: {fail_s: 'Something bad happened. Try again.'}, status: 500
+  #end
 
   class ValidationException < Exception; end
   rescue_from ValidationException do |ve|
