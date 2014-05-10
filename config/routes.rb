@@ -25,6 +25,7 @@ RobotRpg::Application.routes.draw do
       get :in_progress
     end
   end
+  resources :events, only: [:index]
 
   delete 'logout' => 'user_sessions#destroy', :as => :logout
 end

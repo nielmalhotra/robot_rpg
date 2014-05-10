@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_many :messages_sent, class_name: 'Message', foreign_key: :from_id
   has_many :messages_received, class_name: 'Message', foreign_key: :to_id
 
+  has_many :events
   attr_accessible :name, :email, :password, :password_confirmation
 
   def fights_invited
