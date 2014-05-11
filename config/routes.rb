@@ -16,6 +16,9 @@ RobotRpg::Application.routes.draw do
       post :invite
       post :accept
       get :deny
+      scope '/battle', controller: 'battle' do
+        get :test
+      end
     end
     collection do
       get :past
