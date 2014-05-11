@@ -1,6 +1,6 @@
 // TODO refactored into nonexistence - this shouldnt be its own controller, probably can just use http interceptor instead somewhere else
 angular.module('robot_rpg')
-.controller('ApplicationController', ['$scope', '$rootScope', '$http', '$timeout', 'events', function($scope, $rootScope, $http, $timeout, events) {
+.controller('ApplicationController', ['$scope', '$rootScope', '$http', '$timeout', '$route', 'events', function($scope, $rootScope, $http, $timeout, $route, events) {
     $rootScope.$on('$locationChangeSuccess', function (event) {
         $('#notice').html('');
         $http({
@@ -11,13 +11,19 @@ angular.module('robot_rpg')
         });
     });
 
+    $rootScope.$on('root_notice', function(event, args) {
+        console.log('got root_notice. name: ', args.name);
+    });
+
+    $rootScope.$on('battle_notice', function(event, args) {
+        console.log('ApplicationController got battle_notice - name: ', args.battle_name);
+    });
+
     function events_query() {
         events.query(function(events) {
             if(events.length > 0) {
                 angular.forEach(events, function(event) {
-                    var event_data = JSON.parse(event.data);
-                    // TODO dispatch events
-                    console.log('got event: ' + event.type + ' | event_data: ' + event_data);
+                    $route.current.scope.$emit(event.type, JSON.parse(event.data));
                 });
             }
         });
@@ -29,7 +35,7 @@ angular.module('robot_rpg')
                 events_query();
                 poll();
             },
-            5000
+            2500
         );
     })();
 

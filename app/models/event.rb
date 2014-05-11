@@ -30,7 +30,7 @@ class Event < ActiveRecord::Base
       self.create do |event|
         event.user_id = user.id
         event.type = type
-        event.data = data
+        event.data = data.to_json
       end
     end
 
