@@ -9,10 +9,10 @@ angular
             'responseError': function(response) {
                 if (response.status == 500 || response.status == 400) {
                     $rootScope.error_messages.push(response.data);
+                    $timeout(function() {
+                        $rootScope.error_messages.shift();
+                    }, 3000);
                 }
-                $timeout(function() {
-                    $rootScope.error_messages.shift();
-                }, 3000);
                 return $q.reject(response);
             }
         };
