@@ -1,5 +1,5 @@
 .row
   yo noob, this is the battle for fight id {{fight_id}}
 
-  %div.animate-repeat{'ng-repeat' => 'battle_notice in battle_notices track by $index'}
+  %div.animate-repeat{'ng-repeat' => 'battle_notice in battle_notices.queue() track by $index'}
     {{battle_notice}}

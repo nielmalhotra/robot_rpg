@@ -3,15 +3,12 @@ angular
 .config(['$httpProvider', function($httpProvider){
     $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content');
 
-    $httpProvider.interceptors.push(['$q', '$rootScope', '$timeout', function($q, $rootScope, $timeout) {
-        $rootScope.error_messages = [];
+    $httpProvider.interceptors.push(['$q', '$rootScope', 'AutoClearingQueue', function($q, $rootScope, AutoClearingQueue) {
+        $rootScope.error_messages = new AutoClearingQueue();
         return {
             'responseError': function(response) {
                 if (response.status == 500 || response.status == 400) {
-                    $rootScope.error_messages.push(response.data);
-                    $timeout(function() {
-                        $rootScope.error_messages.shift();
-                    }, 3000);
+                    $rootScope.error_messages.add(response.data);
                 }
                 return $q.reject(response);
             }
