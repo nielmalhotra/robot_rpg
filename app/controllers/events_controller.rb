@@ -2,10 +2,6 @@ class EventsController < ApplicationController
   before_filter :require_user, only: [:index]
 
   def index
-    ActiveRecord::Base.transaction do
-      unread = current_user.events.unread
-      current_user.events.unread.update_all(read: true)
-      unread.to_json
-    end
+    render json: Event.get(current_user)
   end
 end
