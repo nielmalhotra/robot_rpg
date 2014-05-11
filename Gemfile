@@ -15,6 +15,7 @@ gem 'bcrypt-ruby'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'protected_attributes'
+gem 'figaro'
 
 group :assets do
   gem 'coffee-rails', '~> 4.0.0'
