@@ -1,10 +1,8 @@
 .row
   [Fight \#{{fight_id}}]
-  %br
-  %br
 
-  Is it your turn? {{my_turn}}
-
+  %div.animate-repeat{'ng-repeat' => 'battle_notice in battle_notices.queue() track by $index'}
+    {{battle_notice}}
   %br
   %br
 
@@ -15,11 +13,7 @@
   %h3 Enemy Mechs
   %div{'ng-repeat' => 'enemy_mech in enemy_mechs'}
     {{enemy_mech}}
-
   %br
 
   %div{'ng-show' => 'my_turn'}
     %button{'ng-click' => 'take_turn()'} Fire Missiles!
-
-  %div.animate-repeat{'ng-repeat' => 'battle_notice in battle_notices.queue() track by $index'}
-    {{battle_notice}}

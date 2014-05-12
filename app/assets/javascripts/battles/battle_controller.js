@@ -19,7 +19,7 @@ angular.module('robot_rpg')
     }
 
     $scope.$on('battle_notice', function(event, args) {
-        $scope.battle_notices.add('a wild battle appears: ' + args.battle_name);
+        $scope.battle_notices.add("It's yo turn mofo!");
         refresh();
         event.stopPropagation();
     });

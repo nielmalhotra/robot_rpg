@@ -11,6 +11,7 @@ module FightRunner
     targeted_mech.decrement!(:current_armor, 1 + rand(5))
     next_user = fight.users.where('users.id != ?', user.id).sample
     fight.update_attribute(:current_turn_user_id, next_user.id)
+    User.where('users.id != ?', user.id).each{|u| Event.publish(u, 'battle_notice')}
   end
 
   def self.run_fight(fight)
