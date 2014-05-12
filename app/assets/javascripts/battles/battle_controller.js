@@ -9,6 +9,7 @@ angular.module('robot_rpg')
             $scope.battle_msg = response.msg;
             $scope.my_mechs = response.my_mechs;
             $scope.enemy_mechs = response.enemy_mechs;
+            $scope.my_turn = response.my_turn;
         });
     }
 

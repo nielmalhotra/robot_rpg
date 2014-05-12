@@ -7,7 +7,7 @@ class BattleController < ApplicationController
       #msg: 'something',
       my_mechs: @fight.mechs.where(user_id: current_user.id),
       enemy_mechs: @fight.mechs.where('user_id != ?', current_user.id).sort{|m,n| m.user_id <=> n.user_id},
-      current_user_id: current_user.id
+      my_turn: (current_user.id == @fight.current_turn_user_id)
     }
   end
 

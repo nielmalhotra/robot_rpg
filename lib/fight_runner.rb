@@ -1,6 +1,8 @@
 module FightRunner
   def self.start(fight)
-    fight.update_attribute(:result, Fight::Result::IN_PROGRESS)
+    fight.result = Fight::Result::IN_PROGRESS
+    fight.current_turn_user_id = fight.creator.id
+    fight.save!
   end
 
   def self.run_fight(fight)

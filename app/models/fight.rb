@@ -4,6 +4,7 @@ class Fight < ActiveRecord::Base
 
   has_many :fight_users
   has_many :users, through: :fight_users
+  belongs_to :current_turn_user, class_name: 'User'
 
   has_many :logs, -> { order 'sequence ASC' }, class_name: 'FightLog'
 
