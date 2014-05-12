@@ -1,8 +1,13 @@
 .row
   [Fight \#{{fight_id}}]
 
-  %div
-    battle msg: {{battle_msg}}
+  %h3 My Mechs
+  %div{'ng-repeat' => 'my_mech in my_mechs'}
+    {{my_mech}}
+
+  %h3 Enemy Mechs
+  %div{'ng-repeat' => 'enemy_mech in enemy_mechs'}
+    {{enemy_mech}}
 
   %div.animate-repeat{'ng-repeat' => 'battle_notice in battle_notices.queue() track by $index'}
     {{battle_notice}}

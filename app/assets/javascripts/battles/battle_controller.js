@@ -5,8 +5,10 @@ angular.module('robot_rpg')
     var battle = new Battle($scope.fight_id);
 
     function refresh() {
-        battle.test(function(response) {
+        battle.status(function(response) {
             $scope.battle_msg = response.msg;
+            $scope.my_mechs = response.my_mechs;
+            $scope.enemy_mechs = response.enemy_mechs;
         });
     }
 

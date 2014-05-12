@@ -11,7 +11,9 @@ class Mech < ActiveRecord::Base
   def attributes
     {
         id: id,
-        name: name
+        name: name,
+        user_id: user_id,
+        current_armor: current_armor
     }
   end
 end
