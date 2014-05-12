@@ -11,6 +11,11 @@ class BattleController < ApplicationController
     }
   end
 
+  def take_turn
+    FightRunner.take_turn(@fight, current_user)
+    render json: {msg: 'Fired yo missiles!'}
+  end
+
   private
 
   def get_fight

@@ -18,6 +18,7 @@ RobotRpg::Application.routes.draw do
       get :deny
       scope '/battle', controller: 'battle' do
         get :status
+        post :take_turn
       end
     end
     collection do

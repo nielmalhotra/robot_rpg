@@ -9,8 +9,13 @@ angular.module('robot_rpg')
             $scope.battle_msg = response.msg;
             $scope.my_mechs = response.my_mechs;
             $scope.enemy_mechs = response.enemy_mechs;
-            $scope.my_turn = response.my_turn;
+            $scope.my_turn = response.my_turn == true;
         });
+    }
+
+    $scope.take_turn = function(){
+        battle.take_turn();
+        refresh();
     }
 
     $scope.$on('battle_notice', function(event, args) {
